@@ -1,38 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
-  labels:
-    app: flaskdemo
-  name: flaskdemo
+  name: flask-test-app
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: flaskdemo
-  strategy: {}
+      app: flask-test-app
+  replicas: 3
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: flaskdemo
+        app: flask-test-app
     spec:
       containers:
-      - image: manishaverma/deployk8:10
-        name: flaskdemo
-        resources: {}
-status: {}
+        - name: flask-test-app
+          image: manishaverma/deployk8:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9090
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-service
-  labels:
-    app: lb-service
+  name: flask-test-service
 spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 5000
   selector:
-    app: flaskdemo
+    app: flask-test-app
+  ports:
+    - protocol: "TCP"
+      port: 9090
+      targetPort: 9090
+  type: LoadBalancer
