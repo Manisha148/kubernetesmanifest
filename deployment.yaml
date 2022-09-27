@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: flaskdemo
-  name: flaskdemo
+    app: flask
+  name: flask
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: flaskdemo
+      app: flask
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: flaskdemo
+        app: flask
     spec:
       containers:
       - image: manishaverma/deployk8:latest
-        name: flaskdemo
+        name: flask
         resources: {}
 status: {}
 ---
@@ -35,4 +35,4 @@ spec:
   - port: 80
     targetPort: 5000
   selector:
-    app: flaskdemo
+    app: flask
