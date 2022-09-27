@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-test-app
-          image: manishaverma/deployk8:11
+          image: manishaverma/deployk8:12
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9090
