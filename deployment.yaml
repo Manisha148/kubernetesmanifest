@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: manishaverma/deployrepo
+        image: deployrepo
         ports:
         - containerPort: 9090
 
