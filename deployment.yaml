@@ -1,33 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: SecondInnovation
+  name: flask-test-app
 spec:
   selector:
     matchLabels:
-      app: SecondInnovation
+      app: flask-test-app
   replicas: 3
   template:
     metadata:
       labels:
-        app: SecondInnovation
+        app: flask-test-app
     spec:
       containers:
-        - name: SecondInnovation
+        - name: flask-test-app
           image: manishaverma/deployrepo
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 9090
----
+	@@ -22,10 +22,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: SecondInnovation-service
+  name: flask-test-service
 spec:
   selector:
-    app: SecondInnovation
+    app: flask-test-app
   ports:
     - protocol: "TCP"
       port: 9090
-      targetPort: 9090
-  type: LoadBalancer
