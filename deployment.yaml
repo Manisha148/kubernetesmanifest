@@ -1,32 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  creationTimestamp: null
+  labels:
+    app: flaskdemo
+  name: flaskdemo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: flaskdemo
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: my-app
+        app: flaskdemo
     spec:
       containers:
-      - name: my-app
-        image: manishaverma/deployrepo:latest
-        ports:
-        - containerPort: 9090
-
+      - image: manishaverma/deployrepo
+        name: flaskdemo
+        resources: {}
+status: {}
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-app
+  name: lb-service
+  labels:
+    app: lb-service
 spec:
   type: LoadBalancer
-  selector:
-    app: my-app
   ports:
-  - name: http
-    port: 9090
-    targetPort: 9090
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: flaskdemo
