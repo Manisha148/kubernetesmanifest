@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flaskdemo
-        image: manishaverma/deployrepo:latest
+        image: manishaverma/deployrepo:31
         ports:
         - containerPort: 9090
 
