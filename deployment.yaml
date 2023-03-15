@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: manishaverma/deployrepo
+        image: manishaverma/javaimg
         ports:
         - containerPort: 8000
 
