@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: manishaverma/deployrepo:latest
+        image: manishaverma/my-flask-app:latest
         ports:
         - containerPort: 9090
 
