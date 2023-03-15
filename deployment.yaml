@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: registry.hub.docker.com/manishaverma/deployrepo:48
+        image: manishaverma/deployrepo:latest
         ports:
         - containerPort: 9090
 
