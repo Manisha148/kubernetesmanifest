@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: manishaverma/deployrepo
+        image: pythonflask:latest
+
         ports:
         - containerPort: 8000
 
