@@ -1,38 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
+  name: flaskdemo
   labels:
     app: flaskdemo
-  name: flaskdemo
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: flaskdemo
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: flaskdemo
     spec:
       containers:
-      - image: 269001393029.dkr.ecr.us-east-1.amazonaws.com/pythonflask
-        name: flaskdemo
-        resources: {}
-status: {}
+      - name: flaskdemo
+        image: 269001393029.dkr.ecr.us-east-1.amazonaws.com/pythonflask:latest
+        ports:
+        - containerPort: 5000
+      imagePullSecrets:
+      - name: my-ecr-creds
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: lb-service
   labels:
-    app: lb-service
+    app: flaskdemo
 spec:
-  type: LoadBalancer
-  ports:
-  - port: 8585
-    targetPort: 5000
   selector:
     app: flaskdemo
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 8585
+    targetPort: 5000
