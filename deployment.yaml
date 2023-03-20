@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flaskdemo
-        image: pythonflask:latest
+        image: 269001393029.dkr.ecr.us-east-1.amazonaws.com/pythonflask
         ports:
         - containerPort: 5000
       imagePullSecrets:
