@@ -21,6 +21,9 @@ spec:
       - image: 269001393029.dkr.ecr.us-east-1.amazonaws.com/pythonflask
         name: flaskdemo
         resources: {}
+    podSpec:
+        imagePullSecrets:
+      - name: my-ecr-creds
 status: {}
 ---
 apiVersion: v1
