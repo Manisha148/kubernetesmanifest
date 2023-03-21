@@ -18,7 +18,7 @@ spec:
       - name: flaskdemo
         image: 269001393029.dkr.ecr.us-east-1.amazonaws.com/pythonflask
         ports:
-        - containerPort: 8585
+        - containerPort: 8888
       imagePullSecrets:
       - name: my-ecr-creds
 
@@ -35,5 +35,5 @@ spec:
   type: LoadBalancer
   ports:
   - name: http
-    port: 8888
-    targetPort: 8585
+    port: 8585
+    targetPort: 8888
