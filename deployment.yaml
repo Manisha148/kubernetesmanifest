@@ -35,5 +35,5 @@ spec:
   type: LoadBalancer
   ports:
   - name: http
-    port: 8585
+    port: 8888
     targetPort: 8585
