@@ -18,7 +18,7 @@ spec:
       - name: flaskdemo
         image: 269001393029.dkr.ecr.us-east-1.amazonaws.com/pythonflask
         ports:
-        - containerPort: 8888
+        - containerPort: 8585
       imagePullSecrets:
       - name: my-ecr-creds
 
